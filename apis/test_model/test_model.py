@@ -88,8 +88,8 @@ def _get_formatted_prediction(model_location, prediction):
 @app.route('/testModel', methods=['POST'])
 def test_model():
     """
-    Given a request containing the model location, and image to predict, return a key/value pair of prediction class 
-    and probability of that image belonging to the class.
+    Given a request containing the model location, and images to predict, return a key/value pair of prediction class
+    and probability of that images belonging to the class.
 
     Takes a POST request of the form:
     {
@@ -124,7 +124,7 @@ def test_model():
         image = _url_to_img(model, image_url, model_location)
     except Exception as e:
         raise(e)
-        app.logger.error(f"Failed to load image from url. {e}")
+        app.logger.error(f"Failed to load images from url. {e}")
         return json.dumps({'success':False}), 400, {'ContentType':'application/json'} 
 
     try:    
@@ -132,7 +132,7 @@ def test_model():
         return _get_formatted_prediction(model_location, prediction)
     except Exception as e:
         raise(e)
-        app.logger.error(f"Failed to classify image. {e}")
+        app.logger.error(f"Failed to classify images. {e}")
         return json.dumps({'success':False}), 400, {'ContentType':'application/json'} 
 
 if __name__ == '__main__':
