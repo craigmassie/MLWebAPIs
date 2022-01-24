@@ -6,7 +6,7 @@ from apis.explain_model.resources.inputs.images import ModelImage
 from apis.explain_model.resources.inputs.loaders.ILoadableImage import ILoadableImage
 
 
-class TensorflowLoadableImage(ILoadableImage):
+class ResnetLoadableImage(ILoadableImage):
     type: Literal[SupportedPreprocessorTypes.ResNet]
 
     def load(self, input_dimensions) -> ModelImage.ModelImage:
