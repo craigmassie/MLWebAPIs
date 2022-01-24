@@ -2,9 +2,7 @@ import typing
 
 from typing import Tuple
 
-from fastapi import HTTPException
-from pydantic.typing import Literal
-
+from fastapi import HTTPException, status
 from apis.explain_model.resources.inputs.images import ModelImage
 from apis.explain_model.resources.models.models.Model import Model
 from tensorflow import is_tensor
@@ -25,8 +23,8 @@ class KerasModel(Model):
             if hasattr(model_input, 'shape'):
                 model_input = model_input.shape
             else:
-                raise HTTPException(status_code=500, detail="Could not determine input dimensions of model, missing " +
-                                                            "shape attribute")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                                    detail="Could not determine input dimensions of model, missing shape attribute")
         if isinstance(model_input, list):
             if len(model_input) == 1:
                 model_input = model_input[0]
