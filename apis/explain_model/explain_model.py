@@ -23,9 +23,9 @@ def explain_images(model: LoadableModelType,
     model: Model = model.model.load()
     input_image: ModelImage = image.image.load(model.input_dimensions)
 
-    marked_image, mask = model.explain_image_instance(input_image.image)
+    explained_image, mask = model.explain_image_instance(input_image.image)
 
-    imsave(save_location, marked_image.apply_mask_on_image(mask))
+    imsave(save_location, explained_image.apply_mask_on_image(mask))
 
 
 if __name__ == '__main__':
