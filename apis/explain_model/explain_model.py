@@ -17,8 +17,8 @@ def explain_images(model: LoadableModelType,
                    image: LoadableImageType,
                    save_location: pathlib.Path):
     """
-    Given a request containing a model location and an inputs location, saves an image with the boundaries of the
-    top classification drawn over the inputs to the path save location.
+    Given a request containing a model location and an image location, saves an image with the boundaries of the
+    top classification drawn over the input image to the path save location.
     """
     model: Model = model.model.load()
     input_image: ModelImage = image.image.load(model.input_dimensions)
