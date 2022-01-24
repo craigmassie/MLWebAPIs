@@ -1,6 +1,5 @@
 import abc
 import pathlib
-
 from pydantic import BaseModel
 from apis.explain_model.resources.models.models import Model
 

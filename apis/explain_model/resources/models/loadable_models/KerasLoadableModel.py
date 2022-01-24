@@ -1,13 +1,13 @@
 from fastapi import HTTPException
-from pydantic import BaseModel
 from pydantic.typing import Literal
 from apis.explain_model.resources.models.loadable_models.ILoadableModel import ILoadableModel
 from apis.explain_model.resources.models.models import KerasModel
 import tensorflow as tf
+from apis.explain_model.resources.models.models.SupportedLibraryTypes import SupportedLibraryTypes
 
 
 class KerasLoadableModel(ILoadableModel):
-    type: Literal['Keras']
+    type: Literal[SupportedLibraryTypes.Keras]
 
     def load(self) -> KerasModel:
         try:

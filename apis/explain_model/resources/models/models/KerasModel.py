@@ -12,8 +12,6 @@ from numpy import squeeze
 
 
 class KerasModel(Model):
-    type = "Keras"
-
     def __init__(self, keras_model: typing.Any):
         self._model = keras_model
         self._input_dimensions = self._get_input_dimensions(keras_model)

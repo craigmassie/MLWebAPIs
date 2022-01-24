@@ -1,15 +1,13 @@
-from pydantic import BaseModel
 from pydantic.typing import Literal
-
-from apis.explain_model.resources.images.images import ModelImage
 from apis.explain_model.resources.images.images import ModelImage
 from tensorflow.keras.preprocessing import image
 from tensorflow.python.keras.applications import imagenet_utils
 from apis.explain_model.resources.images.loadable_images.ILoadableImage import ILoadableImage
+from apis.explain_model.resources.models.models.SupportedLibraryTypes import SupportedLibraryTypes
 
 
 class KerasLoadableImage(ILoadableImage):
-    type: Literal['Keras']
+    type: Literal[SupportedLibraryTypes.Keras]
 
     def load(self, input_dimensions) -> ModelImage.ModelImage:
         return ModelImage.ModelImage(self._normalise(input_dimensions))
