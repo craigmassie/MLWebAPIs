@@ -2,6 +2,7 @@ import typing
 
 from typing import Tuple
 
+from fastapi import HTTPException
 from pydantic.typing import Literal
 
 from apis.explain_model.resources.inputs.images import ModelImage
@@ -24,14 +25,11 @@ class KerasModel(Model):
             if hasattr(model_input, 'shape'):
                 model_input = model_input.shape
             else:
-                pass
-                # app.logger.error("Unable to determine input shape of model.")
-                # abort(400)
-        # Remove tuple from list context (if in one)
+                raise HTTPException(status_code=500, detail="Could not determine input dimensions of model, missing " +
+                                                            "shape attribute")
         if isinstance(model_input, list):
             if len(model_input) == 1:
                 model_input = model_input[0]
-        # app.logger.info(model_input)
         return model_input[1:3]
 
     @property
