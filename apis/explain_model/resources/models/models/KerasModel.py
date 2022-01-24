@@ -37,7 +37,7 @@ class KerasModel(Model):
         return self._input_dimensions
 
     @input_dimensions.setter
-    def input_dimensions(self, value):
+    def input_dimensions(self, _value):
         self._get_input_dimensions(self.model)
 
     @property
@@ -45,8 +45,8 @@ class KerasModel(Model):
         return self._model
 
     @model.setter
-    def model(self, value):
-        self._model = value
+    def model(self, model):
+        self._model = model
 
     def _predict_func(self, images):
         prediction = self.model.predict(images)
