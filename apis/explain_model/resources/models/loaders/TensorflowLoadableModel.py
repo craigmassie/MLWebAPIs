@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 from pydantic.typing import Literal
-from apis.explain_model.resources.models.loadable_models.ILoadableModel import ILoadableModel
+from apis.explain_model.resources.models.loaders.ILoadableModel import ILoadableModel
 from apis.explain_model.resources.models.models.Model import Model
-from apis.explain_model.resources.models.models.SupportedLibraryTypes import SupportedLibraryTypes
+from apis.explain_model.resources.models.SupportedLibraryTypes import SupportedLibraryTypes
 
 
 class TensorflowLoadableModel(ILoadableModel):

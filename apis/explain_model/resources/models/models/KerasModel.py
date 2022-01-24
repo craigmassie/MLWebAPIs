@@ -4,7 +4,7 @@ from typing import Tuple
 
 from pydantic.typing import Literal
 
-from apis.explain_model.resources.images.images import ModelImage
+from apis.explain_model.resources.inputs.images import ModelImage
 from apis.explain_model.resources.models.models.Model import Model
 from tensorflow import is_tensor
 from lime import lime_image

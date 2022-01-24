@@ -1,7 +1,7 @@
 import abc
 import pathlib
 from pydantic import BaseModel
-from apis.explain_model.resources.images.images import ModelImage
+from apis.explain_model.resources.inputs.images import ModelImage
 
 
 class ILoadableImage(BaseModel, abc.ABC):

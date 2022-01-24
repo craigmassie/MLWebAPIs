@@ -171,7 +171,7 @@ def train_model():
     #Retrieve the input shape of the initial model
     expected_input_size = _get_input_dimensions(initial_model)
 
-    #Create train and test generators at the dataset location. Processed to expected images shape.
+    #Create train and test generators at the dataset location. Processed to expected inputs shape.
     train_gen, test_gen = _load_dataset_into_gen(dataset_location, expected_input_size)
 
     #Initialise num_classes to the amount found at directory by generator
